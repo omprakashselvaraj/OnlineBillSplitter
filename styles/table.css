@@ -1,0 +1,39 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 22-Jan-2023, 1:35:49 pm
+    Author     : ompra
+*/
+table{
+    border: 1;
+    border-bottom: 1px solid #faf9f9;
+    border-collapse: collapse;
+    text-align:left;
+    padding: 10px;
+    margin-bottom: 40px;
+    font-size: 0.9em;
+    background-color: rgb(114, 209, 238);
+}
+th{
+    border: 1;
+    border-bottom: 1px solid #faf9f9;
+    border-collapse: collapse;
+    text-align:left;
+    padding: 10px;
+    margin-bottom: 40px;
+    font-size: 0.9em;
+    background-color: rgb(114, 209, 238);
+}
+td{
+    border: 1;
+    border-bottom: 1px solid #faf9f9;
+    border-collapse: collapse;
+    text-align:left;
+    padding: 10px;
+    margin-bottom: 40px;
+    font-size: 0.9em;
+    background-color: rgb(114, 209, 238);
+}
+
