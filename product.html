@@ -35,6 +35,20 @@ body {
 clip-path: polygon(0% 0%, 100% 0%, 100% 70%, 59% 70%, 50% 100%, 39% 70%, 0 70%);
 }
 
+.logout {
+  font-size: .8em;
+  font-family: 'Oswald', sans-serif;
+  position: relative;
+  right: -18px;
+  bottom: -4px;
+  overflow: hidden;
+  letter-spacing: 3px;
+  opacity: 0;
+  transition: opacity .45s;
+  -webkit-transition: opacity .35s;
+  
+}
+
 form {
   margin: 0 auto;
   border: 2px dashed #2E3F51;
@@ -154,25 +168,24 @@ footer {
         </style>
     </head>
     <body>
-        <div>TODO write content</div>
+        <div>
         <a href="logout.php">Logout</a>
+        </div>
           <div class="wrapper">
   <div class="header">
     Bill Splitter
   </div>
 
-  <form class="insert" method="POST" action="calculation.php">
-    <label id="totalL"><i class="fas fa-coins"></i>How much?</label>
-    <input type="text" id="expense" placeholder="Expense Name">  
+  <form class="insert" enctype="multipart/form-data" method="POST" action="calculation.php">
+    <label id="totalL"><i class="fas fa-coins"></i>Expense?</label>
+    <input id="expense" name="expense" placeholder="Expense Name">  
       
     <label id="totalL"><i class="fas fa-coins"></i>How much?</label>
-    <input type="number" id="total" placeholder="Add the Total Amount">
+    <input id="total" name="total" placeholder="Add the Total Amount">
 
      <label id="totalL"><i class="fas fa-users"></i>How many?</label>
-    <input type="number" id="people" placeholder="Add the number of people">
+    <input id="people" name="people" placeholder="Add the number of people">
     
-    <label id="totalL"><i class="fas fa-users"></i>Upload UPI QR Code</label>
-    <input type="file" id="myfile" name="myfile">
 
     <div class="buttonSpace">
       <button id="splitBtn">Split!</button>
@@ -180,6 +193,9 @@ footer {
     </div>
   </form>
 </div>
-
+        <br><br><!-- comment -->
+    <center>
+        <a href='expense.php'>Expense Summary</a>
+    </center>
     </body>
 </html>

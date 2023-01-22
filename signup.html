@@ -1,157 +1,104 @@
 <!DOCTYPE html>
-<!--
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit this template
--->
 <html>
-    <head>
-        <!--<link rel="stylesheet" href="styles/style.css" type="text/css"/> -->
-        <title>Online Expense Splitter </title>
-        <script type="text/javascript">
-            function validate(){
-                var name=document.reg_form.name.value;
-                var email=document.reg_form.email.value;
-                var username=document.reg_form.username.value;
-                var password=document.reg_form.password.value;
-                var conpassword=document.reg_form.conpassword.value;
-                var gender=document.reg_form.gender.value;
-                var phone=document.reg_form.phone.value;
-                var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;  
-                var passw=  /^[A-Za-z]\w{7,14}$/;
-                var phoneno = /^\d{10}$/;
-                var rno = /^\d{7}$/;
-                //window.alert(conpassword);
-                if(name.length<=2){
-                    window.alert("Name should have more than 2 characters");
-                    return false;
-                }
-                if (!filter.test(email)) {
-                    window.alert('Please provide a valid email address');
-                    //email.focus;
-                    return false;
-                }
-                if(!rno.test(username)){
-                    window.alert("Roll Number should be a 7 digit number");
-                    return false;
-                }
-                if(!passw.test(password)){
-                    window.alert("password between 7 to 16 characters which contain only characters, numeric digits, underscore and first character must be a letter");
-                    return false;
-                }
-                if(password!=conpassword){
-                    window.alert("Password and Confirm Password Did'nt Match");
-                    return false;
-                }
-                if(!phoneno.test(phone)){
-                    window.alert("Phone number should have 10 digits and no alphabets or symbols");
-                    return false;
-                }
-            }
-                
-        </script>
-        <style>
-            @import url(https://fonts.googleapis.com/css?family=Roboto);
-            
 
-            body {
-                background: rgb(238,174,202);
-                background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
-            }
-            .form{
-            background:#f1f1f1; width:470px; margin:0 auto; padding-left:50px; padding-top:20px;
-            }
-            .form fieldset{border:0px; padding:0px; margin:0px;}
-            .form p.contact { font-size: 12px; margin:0px 0px 10px 0;line-height: 14px; font-family:Arial, Helvetica;}
+<head>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/
+	4.0.0/css/bootstrap.min.css">
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/
+	jquery/3.3.1/jquery.min.js">
+	</script>
+	<!-- Popper JS -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/
+	popper.js/1.12.9/umd/popper.min.js">
+	</script>
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/
+	4.0.0/js/bootstrap.min.js">
+	</script>
+    <style>
+          @import url(https://fonts.googleapis.com/css?family=Roboto);
+        html, body {
+        height: 100%;
+        }
 
-            .form input[type="text"] { width: 400px; }
-            .form input[type="email"] { width: 400px; }
-            .forminput[type="password"] { width: 400px; }
-            .form input.birthday{width:60px;}
-            .form input.birthyear{width:120px;}
-            .form label { color: #000; font-weight:bold;font-size: 12px;font-family:Arial, Helvetica; }
-            .form label.month {width: 135px;}
-            .form input, textarea { background-color: rgba(255, 255, 255, 0.4); border: 1px solid rgba(122, 192, 0, 0.15); padding: 7px; font-family: Keffeesatz, Arial; color: #4b4b4b; font-size: 14px; -webkit-border-radius: 5px; margin-bottom: 15px; margin-top: -10px; }
-            .form input:focus, textarea:focus { border: 1px solid #ff5400; background-color: rgba(255, 255, 255, 1); }
-            .form .select-style {
-            -webkit-appearance: button;
-            -webkit-border-radius: 2px;
-            -webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
-            -webkit-padding-end: 20px;
-            -webkit-padding-start: 2px;
-            -webkit-user-select: none;
-            background-image: url(images/select-arrow.png), 
-            -webkit-linear-gradient(#FAFAFA, #F4F4F4 40%, #E5E5E5);
-            background-position: center right;
-            background-repeat: no-repeat;
-            border: 0px solid #FFF;
-            color: #555;
-            font-size: inherit;
-            margin: 0;
-            overflow: hidden;
-            padding-top: 5px;
-            padding-bottom: 5px;
-            text-overflow: ellipsis;
-            white-space: nowrap;}
-            .form .gender {
-            width:410px;
-            }
-            .form input.buttom{ background: #4b8df9; display: inline-block; padding: 5px 10px 6px; color: #fbf7f7; text-decoration: none; font-weight: bold; line-height: 1; -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px; -moz-box-shadow: 0 1px 3px #999; -webkit-box-shadow: 0 1px 3px #999; box-shadow: 0 1px 3px #999; text-shadow: 0 -1px 1px #222; border: none; position: relative; cursor: pointer; font-size: 14px; font-family:Verdana, Geneva, sans-serif;}
-            .form input.buttom:hover	{ background-color: #2a78f6; }
-            .signup_link{
-                margin: 30px 0;
-                text-align: center;
-                font-size: 16px;
-                color: #666666;
-                }
-                .signup_link a{
-                color: #2691d9;
-                text-decoration: none;
-                }
-                .signup_link a:hover{
-                text-decoration: underline;
-                }
-        </style>
-    </head>
-    <body>
-        <br><br><br><br><br>
-        <center><h1>Sign Up Here</h1></center>
-        <div  class="form">
-            <form id="contactform" name="reg_form" onsubmit="return validate()" method="POST" action="signup.php"> 
-<!--    			<p class="contact"><label for="name">Name</label></p> 
-    			<input id="name" name="name" placeholder="First and last name" required="" tabindex="1" type="text" required> -->
+        body {
+        background: rgb(238,174,202);
+        background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+        }
+    </style>
+</head>
 
-    			<p class="contact"><label for="email">Email</label></p> 
-    			<input id="email" name="email" placeholder="example@domain.com" required="" type="text"> 
-                
-                <p class="contact"><label for="username">Create a username</label></p> 
-    			<input id="username" name="username" placeholder="Name" required="" tabindex="2" type="text"> 
-                
-                <p class="contact"><label for="phone">Mobile phone</label></p> 
-                <input id="phone" name="phone" placeholder="phone number" required="" type="text" ><br>
+<body><br>
+	<h1 class="text-center text-success">
+		Online Bill Splitter
+	</h1>
+	<p class="text-center">
+		SIGN UP HERE
+	</p>
 
-                <p class="contact"><label for="password">Create a password</label></p> 
-    			<input type="password" id="password" name="password" required="" type="text">
-                 
-                
 
-<!--            <select class="select-style gender" name="gender" required>
-            <option value="select">Select Gender</option>
-            <option value="male">Male</option>
-            <option value="female">Female</option>
-            <option value="others">Others</option>
-            </select><br><br>
+	<div class="container">
+		<div class="col-lg-8
+		m-auto d-block">
+			<form method="POST" action="signup.php">
+				<div class="form-group">
+					<label for="user">
+						Username:
+					</label>
+					<input type="text" name="username" id="usernames" class="form-control">
+					<h5 id="usercheck" style="color: red;">
+						**Username is missing
+					</h5>
+				</div>
+				
+				<div class="form-group">
+					<label for="user">
+						Email:
+					</label>
+					<input type="email" name="email" id="email" required class="form-control">
+					<small id="emailvalid" class="form-text
+				text-muted invalid-feedback">
+						Your email must be a valid email
+					</small>
+				</div>
 
-           <p class="contact"><label for="phone">Mobile phone</label></p> 
-            <input id="phone" name="phone" placeholder="phone number" required="" type="text" > <br>-->
-            <br>
-            <input class="buttom" name="submit" id="submit" tabindex="5" value="Sign Up" type="submit" required>
-        </form> 
-        <div class="signup_link">
-            <center>Not a member? <a href="signin.html">SignIn</a></center>
-            
-            
-          </div>
-    </div>
-    
-    </body>
+                <div class="form-group">
+					<label for="user">
+						Phone:
+					</label>
+					<input type="text" name="phone" id="phone" required class="form-control">
+				</div>
+
+				<div class="form-group">
+					<label for="password">
+						Password:
+					</label>
+					<input type="password" name="pass" id="password" class="form-control">
+					<h5 id="passcheck" style="color: red;">
+						**Please Fill the password
+					</h5>
+				</div>
+
+				<div class="form-group">
+					<label for="conpassword">
+						Confirm Password:
+					</label>
+					<input type="password" name="username" id="conpassword" class="form-control">
+					<h5 id="conpasscheck" style="color: red;">
+						**Password didn't match
+					</h5>
+				</div>
+                <center>
+				    <input type="submit" id="submitbtn" value="Submit" class="btn btn-primary">
+                </center>
+			</form>
+		</div>
+	</div>
+
+	<!-- Including app.js jQuery Script -->
+	<script src="app.js"></script>
+</body>
+
 </html>

@@ -28,13 +28,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHPWebPage.php to 
     // can remove this part from the code 
     // or we can simply make it a comment 
     // for future reference.
-   
-    if($conn) {
-        echo "success"; 
-    } 
-    else {
-        die("Error". mysqli_connect_error()); 
-    } 
+    
     ?>
     </body>
 </html>

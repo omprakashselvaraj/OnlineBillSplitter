@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            input[type=file]::file-selector-button {
+  margin-right: 20px;
+  border: none;
+  background: #084cdf;
+  padding: 10px 20px;
+  border-radius: 10px;
+  color: #fff;
+  cursor: pointer;
+  transition: background .2s ease-in-out;
+}
+
+input[type=submit] {
+  margin-right: 20px;
+  border: none;
+  background: #084cdf;
+  padding: 10px 20px;
+  border-radius: 10px;
+  color: #fff;
+  cursor: pointer;
+  transition: background .2s ease-in-out;
+}
+
+
+input[type=file]::file-selector-button:hover {
+  background: #0d45a5;
+}
+        </style>
+    </head>
+    <body>
+        <br><br><br><!-- comment -->
+    <center>
+        <form>
+            <form action="payment.php" enctype="multipart/form-data" method="post">
+            Select QR Code file :
+            <input type="file" name="file"><br/>
+            <br>
+            <input type="submit" value="Upload" name="Submit1"> <br/>
+            </form>
+        </form>
+    </center>
+    </body>
+</html>
